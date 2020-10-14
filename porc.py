@@ -4,8 +4,7 @@
 from brish import z,zp,zq
 
 def night_process(keyword):
-    if keyword == 'blueberry':
-        zp("ec BLUE")
+    zp("awaysh porc-process {keyword}")
 
 # Copied from ~/anaconda/lib/python3.7/site-packages/pvporcupinedemo/porcupine_demo_mic.py
 
@@ -99,7 +98,7 @@ class PorcupineDemo(Thread):
             print('}')
 
             while True:
-                pcm = audio_stream.read(porcupine.frame_length)
+                pcm = audio_stream.read(porcupine.frame_length, exception_on_overflow=False)
                 pcm = struct.unpack_from("h" * porcupine.frame_length, pcm)
 
                 if self._output_path is not None:
