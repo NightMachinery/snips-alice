@@ -186,10 +186,10 @@ def main():
 
             keyword_paths = [pvporcupine.KEYWORD_PATHS[x] for x in args.keywords]
         else:
-            keyword_paths = args.keyword_paths
+            keyword_paths = [pvporcupine.KEYWORD_PATHS[x] for x in args.keywords] + args.keyword_paths
 
         if args.sensitivities is None:
-            args.sensitivities = [0.5] * len(keyword_paths)
+            args.sensitivities = [1.0] * len(keyword_paths)
 
         if len(keyword_paths) != len(args.sensitivities):
             raise ValueError('Number of keywords does not match the number of sensitivities.')
